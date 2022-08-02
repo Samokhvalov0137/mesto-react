@@ -67,10 +67,10 @@ function App() {
                   type="text"
                   name="form_name"
                   placeholder="Имя"
-                  value=""
+                  defaultValue={""}
                   required
-                  minlength="2"
-                  maxlength="40"
+                  minLength="2"
+                  maxLength="40"
                 />
                 <span id="error-form_name" className="error"></span>
               </label>
@@ -81,10 +81,10 @@ function App() {
                   type="text"
                   name="form_status"
                   placeholder="О себе"
-                  value=""
+                  defaultValue={""}
                   required
-                  minlength="2"
-                  maxlength="200"
+                  minLength="2"
+                  maxLength="200"
                 />
                 <span id="error-form_status" className="error"></span>
               </label>
@@ -108,7 +108,7 @@ function App() {
                   name="form_place"
                   placeholder="Название"
                   required
-                  minlength="2"
+                  minLength="2"
                 />
                 <span id="error-input_add_place" className="error"></span>
               </label>

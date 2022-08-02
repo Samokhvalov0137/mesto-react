@@ -10,26 +10,24 @@ export class Api {
       headers: {
         authorization: this._token,
       },
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
-    });
+    }).then(this._checkResponse);
   }
 
-  _PatchPostMethod(addString, method, jsonObject) {
+  _patchPostMethod(addString, method, jsonObject) {
     return fetch(`${this._baseUrl}${addString}`, {
       method: method,
       headers: this._headers,
       body: JSON.stringify(jsonObject),
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
-    });
+    }).then(this._checkResponse);
   }
+
+  _checkResponse(res) {
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject(`Ошибка: ${res.status}`);
+    }
+    
 
   getUserInfo() {
     return this._getMethod("/users/me");
@@ -40,27 +38,27 @@ export class Api {
   }
 
   patchUserAvatar(userData) {
-    return this._PatchPostMethod("/users/me/avatar", "PATCH", userData);
+    return this._patchPostMethod("/users/me/avatar", "PATCH", userData);
   }
 
   patchUserInfo(userData) {
-    return this._PatchPostMethod("/users/me", "PATCH", userData);
+    return this._patchPostMethod("/users/me", "PATCH", userData);
   }
 
   postCardData(cardData) {
-    return this._PatchPostMethod("/cards", "POST", cardData);
+    return this._patchPostMethod("/cards", "POST", cardData);
   }
 
   deleteCard(cardId) {
-    return this._PatchPostMethod(`/cards/${cardId}`, "DELETE", {});
+    return this._patchPostMethod(`/cards/${cardId}`, "DELETE", {});
   }
 
   setLike(cardId) {
-    return this._PatchPostMethod(`/cards/${cardId}/likes`, "PUT", {});
+    return this._patchPostMethod(`/cards/${cardId}/likes`, "PUT", {});
   }
 
   deleteLike(cardId) {
-    return this._PatchPostMethod(`/cards/${cardId}/likes`, "DELETE", {});
+    return this._patchPostMethod(`/cards/${cardId}/likes`, "DELETE", {});
   }
 
 }

@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import { api } from "../../utils/Api";
-import ImgAvatar from "../../images/Avatar.jpg";
+import imgAvatar from "../../images/Avatar.jpg";
 import Card from "../Card";
 
 function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick }) {
   const [userName, setUserName] = React.useState("Name");
   const [userDescription, setUserDescription] =
     React.useState("About yourself");
-  const [userAvatar, setUserAvatar] = React.useState(ImgAvatar);
+  const [userAvatar, setUserAvatar] = React.useState(imgAvatar);
   const [cards, setCards] = React.useState([]);
 
   useEffect(() => {

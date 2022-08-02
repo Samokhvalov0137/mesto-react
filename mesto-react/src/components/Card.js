@@ -11,7 +11,7 @@ function Card({ card, onCardClick }) {
         className="element__photo"
         src={card.link}
         id="card-image"
-        alt=""
+        alt={card.name}
         onClick={handleCardClick}
       />
       <div className="element__group">

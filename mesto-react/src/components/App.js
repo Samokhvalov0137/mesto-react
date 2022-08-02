@@ -42,7 +42,7 @@ function App() {
   }
 
   return (
-    <body className="root">
+    <div className="root">
       <div className="page">
         <Header />
         <Main
@@ -59,9 +59,8 @@ function App() {
         isOpen={isEditProfilePopupOpen}
         onClose={closeAllPopups}
         children={
-          <form novalidate className="form" name="form-edit" id="form-edit">
-            <fieldset className="form__set">
-              <label className="form__field">
+          <>
+            <label className="form__field">
                 <input
                   className="form__input"
                   id="form_name"
@@ -89,26 +88,19 @@ function App() {
                 />
                 <span id="error-form_status" className="error"></span>
               </label>
-              <button
-                className="popup__submit-btn"
-                type="submit"
-                id="form__edit-bth"
-              >
-                Сохранить
-              </button>
-            </fieldset>
-          </form>
+          </>
         }
+        buttonText={'Сохранить'}
       />
+
       <PopupWithForm
         name={"add"}
         title={"Новое место"}
         isOpen={isAddPlacePopupOpen}
         onClose={closeAllPopups}
         children={
-          <form novalidate className="form" name="form__add" id="form__add">
-            <fieldset className="form__set">
-              <label className="form__field">
+          <>
+           <label className="form__field">
                 <input
                   className="form__input"
                   id="input_add_place"
@@ -131,31 +123,19 @@ function App() {
                 />
                 <span id="error-input_add_link" className="error"></span>
               </label>
-              <button
-                className="popup__submit-btn"
-                type="submit"
-                id="form__add-bth"
-              >
-                Создать
-              </button>
-            </fieldset>
-          </form>
+          </>
         }
+        buttonText={'Создать'}
       />
+
       <PopupWithForm
         name={"avatar"}
         title={"Обновить аватар"}
         isOpen={isEditAvatarPopupOpen}
         onClose={closeAllPopups}
         children={
-          <form
-            novalidate
-            className="form"
-            name="form__avatar"
-            id="form__avatar"
-          >
-            <fieldset className="form__set">
-              <label className="form__field">
+          <>
+           <label className="form__field">
                 <input
                   className="form__input"
                   id="input_avatar_link"
@@ -166,38 +146,25 @@ function App() {
                 />
                 <span id="error-input_avatar_link" className="error"></span>
               </label>
-              <button
-                className="popup__submit-btn"
-                type="submit"
-                id="form__avatar-btn"
-              >
-                Сохранить
-              </button>
-            </fieldset>
-          </form>
+          </>
         }
+        buttonText={'Сохранить'}
       />
+
       <PopupWithForm
         name={"delete"}
         title={"Вы уверены?"}
         isOpen={isConfirmPopupOpen}
         onClose={closeAllPopups}
-        children={
-          <button
-            className="popup__submit-btn"
-            type="submit"
-            id="form__delete-btn"
-          >
-            Да
-          </button>
-        }
+        buttonText={'Да'}
       />
+
       <ImagePopup
         card={selectedCard}
         isOpen={isImagePopupOpen}
         onClose={closeAllPopups}
       />
-    </body>
+    </div>
   );
 }
 

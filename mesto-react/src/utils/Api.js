@@ -53,13 +53,22 @@ export class Api {
     return this._patchPostMethod(`/cards/${cardId}`, "DELETE", {});
   }
 
-  setLike(cardId) {
-    return this._patchPostMethod(`/cards/${cardId}/likes`, "PUT", {});
+  toggleLike(cardId, isLiked){
+    if (!isLiked) {
+      return this._patchPostMethod(`/cards/${cardId}/likes`, "PUT", {});
+    } else {
+      return this._patchPostMethod(`/cards/${cardId}/likes`, "DELETE", {});
+    }
   }
 
-  deleteLike(cardId) {
-    return this._patchPostMethod(`/cards/${cardId}/likes`, "DELETE", {});
-  }
+
+  // setLike(cardId) {
+  //   return this._patchPostMethod(`/cards/${cardId}/likes`, "PUT", {});
+  // }
+
+  // deleteLike(cardId) {
+  //   return this._patchPostMethod(`/cards/${cardId}/likes`, "DELETE", {});
+  // }
 
 }
 
